@@ -21,12 +21,16 @@ $lgcyan: hsl(185, 41%, 84%);
 $lgcyan2: hsl(189, 41%, 97%);
 $white: hsl(0, 0%, 100%);
 
+/*************SCREEN SIZE***************/
+$responsive: 900px;
+
 .attribution {
   font-size: 11px;
   text-align: center;
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+  text-decoration: none;
 }
 
 /*************LAYOUT AND CONTAINER***************/
@@ -44,6 +48,9 @@ body {
   background-color: $white;
   border-radius: 2rem;
   padding: 1rem;
+  margin: 1% 0;
+  min-width: 285px;
+  max-width: 500px;
   width: 100%;
 }
 
@@ -57,14 +64,13 @@ body {
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-content: space-between;
 }
 .button-container {
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr 1fr;
 
-  padding: 0.75rem 0;
+  padding: 0.75rem 0 1.5rem;
 }
 
 /******************IMAGE STYLES*******************/
@@ -76,9 +82,13 @@ body {
 /******************LABEL STYLES*******************/
 label {
   color: $dgcyan;
-  font-size: 1rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  margin-top: 0;
+}
+
+.numOfPeople {
+  display: flex;
+  justify-content: space-between;
 }
 
 /******************INPUT STYLES*******************/
@@ -89,17 +99,27 @@ input {
   text-align: right;
 
   padding: 0.3rem 1em;
-  margin-bottom: 1rem;
+  margin: 0.5rem 0 2rem;
   width: 100%;
+
+  &:focus {
+    outline-color: orange;
+  }
 }
 input[type="text"] {
   color: $vdcyan;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 400;
+  opacity: 0.5;
+
+  &:focus::placeholder {
+    color: transparent;
+  }
 }
 
 .bill-input {
   background: url("../images/icon-dollar.svg") 5% center no-repeat $lgcyan2;
+  margin-bottom: 1rem;
 }
 
 .numOfPeople-input {
@@ -112,27 +132,48 @@ button {
   border: none;
   border-radius: 0.25rem;
   color: $white;
+  cursor: pointer;
 
   padding: 0.5rem 2rem;
   font-weight: 700;
   font-size: 1.3rem;
-}
 
-.btn--15 {
-  background-color: $strongcyan;
-  color: $vdcyan;
+  &:active {
+    background-color: $strongcyan;
+    color: $vdcyan;
+  }
 }
 
 .btn--custom {
   background-color: $lgcyan2;
   color: $dgcyan;
+  font-weight: 700;
+  font-size: 1.3rem;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  text-align: right;
+
+  &::placeholder {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}
+.btn--custom[type="text"] {
+  color: $vdcyan;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .btn--reset {
-  background-color: $strongcyan;
+  background-color: hsl(183, 89%, 22%);
   color: $vdcyan;
   text-transform: uppercase;
   grid-column: 1/3;
+  margin-top: 1rem;
+
+  &:active {
+    background-color: $strongcyan;
+  }
 }
 
 /******************GLOBAL STYLES*******************/
@@ -141,7 +182,7 @@ p {
   color: $white;
   font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   line-height: 1.3;
 }
 
@@ -149,10 +190,95 @@ span {
   color: $lgcyan;
   font-size: 0.8rem;
   text-align: right;
+  opacity: 0.5;
 }
 
 .lbl {
   color: $strongcyan;
   font-size: 2rem;
   text-align: right;
+  margin-bottom: 2rem;
+}
+
+.message {
+  &::after {
+    content: "Can't be zero";
+    color: orange;
+    display: block;
+  }
+}
+
+.button-active {
+  background-color: $strongcyan;
+  color: $vdcyan;
+}
+
+/*
+*
+*
+*
+MEDIA QUERRIES
+*
+*
+*
+*/
+@media screen and (min-width: $responsive) {
+  body {
+    display: flex;
+    padding: 7% 0;
+  }
+  #main {
+    display: flex;
+    max-width: 900px;
+    margin: 5% 0;
+  }
+  section {
+    flex: 1;
+    margin: 1rem;
+  }
+  label {
+    font-size: 0.8rem;
+  }
+
+  input {
+    border-style: none;
+    border-radius: 0.25rem;
+    display: block;
+    text-align: right;
+
+    padding: 0.3rem 1em;
+    margin: 0;
+    width: 100%;
+  }
+
+  .output-container {
+    padding: 2.5rem 2rem 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .button-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .btn--reset {
+    grid-column: 1/3;
+    align-self: end;
+  }
+
+  .logo {
+    width: 90px;
+    padding: 0;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+    align-self: flex-start;
+  }
+
+  .lbl {
+    margin: 0;
+    font-size: 3rem;
+    padding: 0;
+    transform: translateY(-20%);
+  }
 }

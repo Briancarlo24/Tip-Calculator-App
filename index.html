@@ -20,33 +20,32 @@
     <main id="main">
       <section class="input-container">
         <label class="bill-lbl" for="bill">Bill</label>
-        <input class="bill-input" type="text" />
+        <input class="bill-input" type="text" placeholder="0" />
 
         <label for="tip">Select Tip %</label>
         <div class="button-container">
-          <button class="btn--5">5%</button>
-          <button class="btn--10">10%</button>
-          <button class="btn--15">15%</button>
-          <button class="btn--25">25%</button>
-          <button class="btn--50">50%</button>
-          <button class="btn--custom">Custom</button>
+          <button class="btn--5 btn--tip">5%</button>
+          <button class="btn--10 btn--tip">10%</button>
+          <button class="btn--15 btn--tip">15%</button>
+          <button class="btn--25 btn--tip">25%</button>
+          <button class="btn--50 btn--tip">50%</button>
+          <input type="text" class="btn--custom" placeholder="Custom" />
         </div>
-        <label for="numberOfPeople">Number of People</label>
-        <input class="numOfPeople-input" type="text" />
+        <label class="numOfPeople" for="numberOfPeople">Number of People</label>
+        <input class="numOfPeople-input" type="text" placeholder="0" />
       </section>
       <section class="output-container">
-        <p class="amount">
+        <p class="tip-lbl">
           Tip Amount<br />
-
           <span>/ person</span>
         </p>
-        <p class="lbl">$4.27</p>
+        <p class="lbl tip"></p>
 
-        <p class="total">
+        <p class="total-lbl">
           Total<br />
           <span>/ person</span>
         </p>
-        <p class="lbl">$32.79</p>
+        <p class="lbl total"></p>
 
         <button type="button" class="btn--reset">Reset</button>
       </section>
@@ -58,5 +57,7 @@
       >. Coded by
       <a href="https://github.com/Briancarlo24">Brian Carlo Birondo</a>.
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
