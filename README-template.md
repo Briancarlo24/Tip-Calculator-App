@@ -6,7 +6,6 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -15,8 +14,6 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
   - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -28,22 +25,10 @@ Users should be able to:
 - See hover states for all interactive elements on the page
 - Calculate the correct tip and total cost of the bill per person
 
-### Screenshot
-
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
-
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Add solution URL here](https://github.com/Briancarlo24/Tip-Calculator-App.git)
+- Live Site URL: [Add live site URL here](https://briancarlo24.github.io/Tip-Calculator-App/)
 
 ## My process
 
@@ -54,59 +39,87 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- [SASS] - CSS LIBRARY
+- Vanilla Javascript
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+I learned about grid-column-template for arranging button groups. I also learned about eventlisterner 'change' in js everytime I input something.
+
+I learned how to optimize reusable code by creating a function that I can use over and over again.
 
 To see how you can add code snippets, see below:
 
 ```html
 <h1>Some HTML code I'm proud of</h1>
 ```
-```css
-.proud-of-this-css {
-  color: papayawhip;
+
+```scss
+input[type="text"] {
+  color: $vdcyan;
+  font-size: 1.5rem;
+  font-weight: 400;
+  opacity: 0.5;
+
+  &:focus::placeholder {
+    color: transparent;
+  }
 }
 ```
+
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+function calculateTip(percentage, bill) {
+  tip = bill * percentage;
+  return tip.toFixed(2);
 }
+
+function perPerson(currentTip) {
+  const numberOfPeople = document.querySelector(".numOfPeople-input").value;
+
+  if (numberOfPeople < 1) {
+    document.querySelector(".numOfPeople").classList.add("message");
+    return `0.00`;
+  } else if (isNaN(numberOfPeople)) {
+    document.querySelector(".numOfPeople").classList.add("message");
+  } else {
+    document.querySelector(".numOfPeople").classList.remove("message");
+    amountPerPerson = currentTip / numberOfPeople;
+    return amountPerPerson.toFixed(2);
+  }
+}
+
+function display(finaltip, bill) {
+  if (
+    document
+      .querySelector(".bill-input")
+      .classList.contains("bill-input-border")
+  ) {
+    document.querySelector(".bill-input").classList.remove("bill-input-border");
+  }
+  btnReset.disabled = false;
+  btnReset.classList.add("button-active");
+  currentTip = calculateTip(finaltip, bill);
+
+  tipAmount.innerHTML = `$${currentTip}`;
+  total.innerHTML = `$${perPerson(currentTip)}`;
+}
+};
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+I would use the things that I have learned here to my future projects. I am trying to learn as much as I can and finding the best and optimal way to structure my code.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Example resource 1](https://www.stackoverflow.com) - This helped me find answers to my questions related to JS and SCSS
+- [Example resource 2](https://www.w3cschools.com) - This helped me with the designs for the buttons and adding functionality to it. Also on how to use 'change' eventlisterner.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Website - [Brian Carlo Birondo](https://github.com/Briancarlo24)
+- Frontend Mentor - [@Briancarlo24](https://www.frontendmentor.io/profile/Briancarlo24)
 
 ## Acknowledgments
 
 This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
