@@ -143,6 +143,10 @@ input[type="text"]:focus::placeholder {
   margin-bottom: 1rem;
 }
 
+.bill-input-border {
+  border: solid 2px orange;
+}
+
 .numOfPeople-input {
   background: url("../images/icon-person.svg") 5% center no-repeat #f4fafa;
 }
@@ -157,11 +161,6 @@ button {
   padding: 0.5rem 2rem;
   font-weight: 700;
   font-size: 1.3rem;
-}
-
-button:active {
-  background-color: #26c0ab;
-  color: #00494d;
 }
 
 .btn--custom {

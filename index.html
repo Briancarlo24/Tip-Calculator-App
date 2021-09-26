@@ -20,7 +20,7 @@
     <main id="main">
       <section class="input-container">
         <label class="bill-lbl" for="bill">Bill</label>
-        <input class="bill-input" type="text" placeholder="0" />
+        <input name="bill" class="bill-input" type="text" placeholder="0" />
 
         <label for="tip">Select Tip %</label>
         <div class="button-container">
@@ -29,10 +29,20 @@
           <button class="btn--15 btn--tip">15%</button>
           <button class="btn--25 btn--tip">25%</button>
           <button class="btn--50 btn--tip">50%</button>
-          <input type="text" class="btn--custom" placeholder="Custom" />
+          <input
+            name="custom"
+            type="text"
+            class="btn--custom"
+            placeholder="Custom"
+          />
         </div>
         <label class="numOfPeople" for="numberOfPeople">Number of People</label>
-        <input class="numOfPeople-input" type="text" placeholder="0" />
+        <input
+          name="numOfPeople"
+          class="numOfPeople-input"
+          type="text"
+          placeholder="0"
+        />
       </section>
       <section class="output-container">
         <p class="tip-lbl">

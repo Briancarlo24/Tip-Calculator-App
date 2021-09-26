@@ -122,6 +122,10 @@ input[type="text"] {
   margin-bottom: 1rem;
 }
 
+.bill-input-border {
+  border: solid 2px orange;
+}
+
 .numOfPeople-input {
   background: url("../images/icon-person.svg") 5% center no-repeat $lgcyan2;
 }
@@ -137,11 +141,6 @@ button {
   padding: 0.5rem 2rem;
   font-weight: 700;
   font-size: 1.3rem;
-
-  &:active {
-    background-color: $strongcyan;
-    color: $vdcyan;
-  }
 }
 
 .btn--custom {
